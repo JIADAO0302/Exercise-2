@@ -1,0 +1,31 @@
+
+description.txt
+
+This file describes the components of this submission for Exercise 2 (DS5105).
+
+-----------------------------
+Question 1 – ATE Estimation
+-----------------------------
+- The regression model was estimated using Python and statsmodels.
+- The estimated average treatment effect (ATE) is approximately -9.11.
+- Interpretation: Participation in the carbon offset program is associated with a 9.11-point *decrease* in engagement score, after controlling for sustainability spending.
+
+Answers:
+Q1.2) The ATE estimate (τ̂) is -9.11, meaning treated units scored lower in engagement.
+Q1.3) This estimate is causal if:
+   - The model is correctly specified (linearity, no omitted variables),
+   - Treatment is unconfounded (no unmeasured confounders),
+   - Observations are independent.
+
+-----------------------------
+Question 2 – Flask API & Docker
+-----------------------------
+- app.py: Flask app that exposes a POST endpoint '/predict'.
+- It accepts treatment and sustainability_spending as inputs and returns the predicted engagement score.
+- The model is not re-trained; coefficients are hardcoded from Part 1 results.
+
+- requirements.txt: Lists Python package dependencies (Flask).
+- Dockerfile: Builds the containerized app using python:3.10-slim and exposes port 5000.
+
+Q2.3) When Wi = 1 and Xi = 20, the predicted score is:
+      Ŷ = 141.58 + (-9.11)*1 + (-0.46)*20 ≈ 122.58
